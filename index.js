@@ -84,7 +84,19 @@ async function lookupAdverseEvents({ drug_name, limit, patient_id }) {
 function buildServer() {
   const server = new Server(
     { name: "medsafe-mcp", version: "1.0.0" },
-    { capabilities: { tools: {} } }
+    {
+      capabilities: {
+        tools: {},
+        extensions: {
+          "ai.promptopinion/fhir-context": {
+            scopes: [
+              { name: "patient/MedicationRequest.read", description: "Read patient medication requests", required: false },
+              { name: "patient/MedicationStatement.read", description: "Read patient medication statements", required: false }
+            ]
+          }
+        }
+      }
+    }
   );
 
   server.setRequestHandler(ListToolsRequestSchema, async function() {
