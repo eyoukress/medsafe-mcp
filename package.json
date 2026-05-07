@@ -1,0 +1,16 @@
+{
+  "name": "medsafe-mcp",
+  "version": "1.0.0",
+  "description": "MedSafe: Medication Safety MCP Server for Agents Assemble Hackathon",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
